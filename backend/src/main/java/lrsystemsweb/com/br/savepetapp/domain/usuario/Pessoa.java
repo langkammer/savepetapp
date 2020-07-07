@@ -1,6 +1,6 @@
-package domain.usuario;
+package lrsystemsweb.com.br.savepetapp.domain.usuario;
 
-import domain.comun.Sexo;
+import lrsystemsweb.com.br.savepetapp.domain.comun.Sexo;
 import org.joda.time.LocalDate;
 
 import javax.persistence.Embeddable;

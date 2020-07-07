@@ -1,4 +1,4 @@
-package domain.seguranca;
+package lrsystemsweb.com.br.savepetapp.domain.seguranca;
 
 public enum Role {
     USUARIO_COMUN,

@@ -1,4 +1,4 @@
-package core;
+package lrsystemsweb.com.br.savepetapp.core;
 
 import org.joda.time.LocalDate;
 

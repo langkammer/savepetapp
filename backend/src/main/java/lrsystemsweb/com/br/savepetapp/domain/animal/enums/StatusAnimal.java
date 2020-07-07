@@ -1,4 +1,4 @@
-package domain.pedido;
+package lrsystemsweb.com.br.savepetapp.domain.animal.enums;
 
 public enum StatusAnimal {
     PERDIDO,

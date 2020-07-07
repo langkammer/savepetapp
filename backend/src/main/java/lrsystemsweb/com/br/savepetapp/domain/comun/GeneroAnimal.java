@@ -1,4 +1,4 @@
-package domain.comun;
+package lrsystemsweb.com.br.savepetapp.domain.comun;
 
 public enum GeneroAnimal {
     MACHO,

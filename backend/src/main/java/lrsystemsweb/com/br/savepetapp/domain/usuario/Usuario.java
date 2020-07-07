@@ -1,6 +1,6 @@
-package domain.usuario;
+package lrsystemsweb.com.br.savepetapp.domain.usuario;
 
-import domain.comun.ObjetoPersistivel;
+import lrsystemsweb.com.br.savepetapp.domain.comun.ObjetoPersistivel;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
