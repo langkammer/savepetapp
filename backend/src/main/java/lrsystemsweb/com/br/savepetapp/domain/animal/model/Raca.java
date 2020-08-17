@@ -1,20 +1,31 @@
 package lrsystemsweb.com.br.savepetapp.domain.animal.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lrsystemsweb.com.br.savepetapp.domain.comun.ObjetoPersistivel;
+import org.joda.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
-public class Raca extends ObjetoPersistivel {
+@NoArgsConstructor
+@Getter
+@Setter
+public class Raca {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long pk;
 
     @Column
-    @Getter @Setter
     private String nome;
 
     @Column
-    @Getter @Setter
     private String origem;
+
+    @Column
+    private LocalDateTime dataInclusao;
+
+    @Column
+    private LocalDateTime dataAlteracao;
 }

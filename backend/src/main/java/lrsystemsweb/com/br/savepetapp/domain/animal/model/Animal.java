@@ -1,35 +1,51 @@
 package lrsystemsweb.com.br.savepetapp.domain.animal.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lrsystemsweb.com.br.savepetapp.domain.animal.enums.StatusAnimal;
-import lrsystemsweb.com.br.savepetapp.domain.comun.ObjetoPersistivel;
+import lrsystemsweb.com.br.savepetapp.domain.animal.enums.TipoAnimal;
 import org.joda.time.LocalDate;
+import org.joda.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.*;
 
 @Entity
-public class Animal extends ObjetoPersistivel {
+@NoArgsConstructor
+@Getter
+@Setter
+public class Animal  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long pk;
 
     @Column
-    @Getter @Setter
     private String nome;
 
-    @OneToMany
-    @Getter @Setter
-    @NotBlank(message = "Email is mandatory")
+    @OneToOne(cascade=CascadeType.DETACH)
     private Raca raca;
 
     @Column
-    @Getter @Setter
-    @NotBlank(message = "Email is mandatory")
     private LocalDate dataVizualizacao;
 
     @Column
-    @Getter @Setter
     private StatusAnimal statusAnimal;
+
+    @Column
+    private TipoAnimal tipoAnimal;
+
+    @Transient
+    private String foto;
+
+    @Column
+    private String nomeFoto;
+
+    @Column
+    private LocalDateTime dataInclusao;
+
+    @Column
+    private LocalDateTime dataAlteracao;
 
 }
