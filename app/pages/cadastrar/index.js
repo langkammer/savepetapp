@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import pata from'../../assets/pata.png';
 
@@ -14,24 +14,26 @@ import {
   FacebookLinkText
 } from './styles';
 
-export default class Login extends Component {
+const Cadastrar = () => {
 
-
-  logar = () => {
+   function salvar() {
       console.log("teste");
-  };
-  
-  cadastrar = () => {
-    console.log("teste 2");
-    this.props.navigation.navigate('Cadastrar');
-
   }
 
-  render() {
-    return (
+  function cadastrar() {
+    console.log("teste ... >>");
+
+  };
+
+  return (
       <>
      <Container>
         <Logo source={pata} resizeMode="contain" />
+        <Input
+          placeholder="Nome"
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
         <Input
           placeholder="Endereço de e-mail"
           autoCapitalize="none"
@@ -45,20 +47,14 @@ export default class Login extends Component {
         />
      
       <Button >
-            <ButtonText onClick={this.logar}>Entrar </ButtonText>
+            <ButtonText onPress={salvar}>Salvar </ButtonText>
       </Button>
-	    <FacebookLink>
-		      <FacebookLinkText>Logar Com Facebook</FacebookLinkText>
-		  </FacebookLink>
-      <SignInLink onClick={this.cadastrar}>
-        <SignInLinkText>Criar conta</SignInLinkText>
-      </SignInLink>
+	  
       </Container>
       
       </>
  
-  );
-  }
-  
+  )
 }
 
+export default Cadastrar;
