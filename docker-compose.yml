@@ -1,6 +1,6 @@
 version: '3'
 services:
-    mysql-standalone:
+    savepet-db:
         image: mysql
         environment:
             - MYSQL_ROOT_PASSWORD=1234
@@ -9,7 +9,10 @@ services:
             - MYSQL_PASSWORD=1234
         expose:
             - 3306
-    web-service:
+        container_name: savepet-db
+        networks:
+            - spring-boot-mysql-network
+    savepet-app:
         build: 
             dockerfile: ./docker/app.dockerfile
             context: .
@@ -17,9 +20,9 @@ services:
             - spring-boot-mysql-network
         ports: 
             - "8080:8080"
-        container_name: app    
+        container_name: savepet-app 
         depends_on: 
-            - "mysql-standalone"
+            - "savepet-db"
 
 networks:
     spring-boot-mysql-network:
