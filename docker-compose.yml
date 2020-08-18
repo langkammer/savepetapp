@@ -1,0 +1,26 @@
+version: '3'
+services:
+    mysql-standalone:
+        image: mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=1234
+            - MYSQL_DATABASE=savepetapp
+            - MYSQL_USER=root
+            - MYSQL_PASSWORD=1234
+        expose:
+            - 3306
+    web-service:
+        build: 
+            dockerfile: ./docker/app.dockerfile
+            context: .
+        networks:
+            - spring-boot-mysql-network
+        ports: 
+            - "8080:8080"
+        container_name: app    
+        depends_on: 
+            - "mysql-standalone"
+
+networks:
+    spring-boot-mysql-network:
+        driver: bridge
